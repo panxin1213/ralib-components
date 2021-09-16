@@ -17,19 +17,19 @@ import { match } from 'path-to-regexp';
 import { Route, Switch } from 'react-router-dom';
 export default /*#__PURE__*/React.memo( /*#__PURE__*/forwardRef(function KeepPageAlive(props, ref) {
   var routes = props.routes,
-      render404 = props.render404,
-      hashRouter = props.hashRouter,
-      baseName = props.baseName;
+    render404 = props.render404,
+    hashRouter = props.hashRouter,
+    baseName = props.baseName;
   var keepPagesRef = useRef([]);
 
   var _useState = useState({}),
-      _useState2 = _slicedToArray(_useState, 2),
-      setRefresh = _useState2[1];
+    _useState2 = _slicedToArray(_useState, 2),
+    setRefresh = _useState2[1];
 
   var _useState3 = useState({}),
-      _useState4 = _slicedToArray(_useState3, 2),
-      reload = _useState4[0],
-      setReload = _useState4[1];
+    _useState4 = _slicedToArray(_useState3, 2),
+    reload = _useState4[0],
+    setReload = _useState4[1];
 
   var _useMemo = useMemo(function () {
     // eslint-disable-next-line @typescript-eslint/no-shadow
@@ -48,8 +48,8 @@ export default /*#__PURE__*/React.memo( /*#__PURE__*/forwardRef(function KeepPag
       unKeepRoutes: unKeepRoutes
     };
   }, [routes]),
-      keepRoutes = _useMemo.keepRoutes,
-      unKeepRoutes = _useMemo.unKeepRoutes;
+    keepRoutes = _useMemo.keepRoutes,
+    unKeepRoutes = _useMemo.unKeepRoutes;
 
   useImperativeHandle(ref, function () {
     return {
@@ -61,9 +61,9 @@ export default /*#__PURE__*/React.memo( /*#__PURE__*/forwardRef(function KeepPag
     };
   });
   var _window$location = window.location,
-      pathname = _window$location.pathname,
-      search = _window$location.search,
-      hash = _window$location.hash;
+    pathname = _window$location.pathname,
+    search = _window$location.search,
+    hash = _window$location.hash;
   var routePath = hashRouter ? hash.replace('#', '').split('?')[0] : pathname;
   if (baseName) routePath = routePath.replace(baseName, '');
   useEffect(function () {
@@ -99,26 +99,28 @@ export default /*#__PURE__*/React.memo( /*#__PURE__*/forwardRef(function KeepPag
 
       var routeMatch = {};
 
-      var _match = match(route.path, {
-        decode: decodeURIComponent
-      })(routePath),
+      if (route) {
+        var _match = match(route.path, {
+          decode: decodeURIComponent
+        })(routePath),
           params = _match.params;
 
-      routeMatch.params = params;
-      routeMatch.path = route.path;
-      routeMatch.url = pathname;
-      routeMatch.isExact = true;
-      var Component = route.component;
-      keepPagesRef.current.unshift({
-        path: (_route = route) === null || _route === void 0 ? void 0 : _route.path,
-        key: key,
-        // 使用 React.memo 保持组件在没有属性变化的情况下不更新
-        Component: /*#__PURE__*/React.memo(function (componentProps) {
-          return /*#__PURE__*/React.createElement(Component, _extends({}, componentProps, {
-            match: routeMatch
-          }));
-        })
-      });
+        routeMatch.params = params;
+        routeMatch.path = route.path;
+        routeMatch.url = pathname;
+        routeMatch.isExact = true;
+        var Component = route.component;
+        keepPagesRef.current.unshift({
+          path: (_route = route) === null || _route === void 0 ? void 0 : _route.path,
+          key: key,
+          // 使用 React.memo 保持组件在没有属性变化的情况下不更新
+          Component: /*#__PURE__*/React.memo(function (componentProps) {
+            return /*#__PURE__*/React.createElement(Component, _extends({}, componentProps, {
+              match: routeMatch
+            }));
+          })
+        });
+      }
     } else {
       // 页面已存在，当前页面标记激活
       var nextPage = keepPagesRef.current[index]; // active 初次加载为：undefined，隐藏为：false，再次激活为：true
@@ -133,9 +135,9 @@ export default /*#__PURE__*/React.memo( /*#__PURE__*/forwardRef(function KeepPag
   }, [reload, keepRoutes, unKeepRoutes, pathname, search, hash, hashRouter, routePath, render404]);
   return /*#__PURE__*/React.createElement(React.Fragment, null, keepPagesRef.current.map(function (item) {
     var key = item.key,
-        Component = item.Component,
-        path = item.path,
-        active = item.active;
+      Component = item.Component,
+      path = item.path,
+      active = item.active;
     var display = active !== false ? 'block' : 'none';
     var activeProps = {
       active: active
@@ -151,7 +153,7 @@ export default /*#__PURE__*/React.memo( /*#__PURE__*/forwardRef(function KeepPag
     }, /*#__PURE__*/React.createElement(Component, activeProps));
   }), /*#__PURE__*/React.createElement(Switch, null, unKeepRoutes.map(function (item) {
     var path = item.path,
-        component = item.component;
+      component = item.component;
     return /*#__PURE__*/React.createElement(Route, {
       key: path,
       exact: true,
