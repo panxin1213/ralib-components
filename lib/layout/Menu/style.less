@@ -1,0 +1,67 @@
+@import '../../theme';
+
+@prefix-cls: ~'@{ra-lib-prefix}-layout-menu';
+
+.@{prefix-cls} {
+    &-top {
+        flex: 0;
+    }
+
+    &-search {
+        padding: 8px;
+    }
+
+    &-menu {
+        flex: 1;
+        overflow: auto;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+
+        &::-webkit-scrollbar {
+            width: 0 !important;
+            background: transparent;
+        }
+    }
+
+    &-title-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        &:hover {
+            .@{prefix-cls}-collection-icon {
+                transform: scale(1);
+                transition-delay: 500ms;
+            }
+        }
+    }
+
+    &-title {
+        flex: 1;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    &-collection-icon {
+        flex: 0;
+        transform: scale(0);
+        transition: transform .2s;
+        transition-delay: 0ms;
+    }
+
+    &-empty {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        opacity: .15;
+        margin: 0;
+
+        &.dark-menu {
+            color: #fff;
+        }
+    }
+
+}
+

@@ -1,0 +1,34 @@
+import React, { CSSProperties, ReactChildren, ReactNode } from 'react';
+import { FormItemProps } from 'antd/es/form';
+declare const ItemTypes: ["image-code", "message-code", "input", "hidden", "number", "textarea", "password", "mobile", "email", "select", "select-tree", "checkbox", "checkbox-group", "radio", "radio-button", "radio-group", "switch", "date", "week", "month", "quarter", "year", "date-range", "week-range", "month-range", "quarter-range", "year-range", "time", "time-range", "date-time", "date-time-range", "cascader", "transfer"];
+export declare type ItemType = typeof ItemTypes[number];
+declare const dateFormatTypes: ["YYYY-MM-DD", "YYYY-MM-DD HH:mm:ss", "YYYYMMDD", "YYYY-MM", "YYYYMM", "timestamp"];
+export declare type dateFormatType = typeof dateFormatTypes[number];
+export interface ItemProps extends FormItemProps {
+    maxLength?: number;
+    minLength?: number;
+    type?: ItemType;
+    children?: ReactChildren;
+    noSpace?: boolean;
+    dateFormat?: dateFormatType;
+    style?: CSSProperties;
+    placeholder?: any;
+    options?: [];
+    treeData?: [];
+    onChange?: () => void;
+    onSelect?: () => void;
+    onCheck?: () => void;
+    onClick?: () => void;
+    onFocus?: () => void;
+    onBlur?: () => void;
+    autoFocus?: boolean;
+    allowClear?: boolean;
+    showSearch?: boolean;
+    disabled?: boolean;
+    loading?: boolean;
+    checkedChildren?: ReactNode;
+    unCheckedChildren?: ReactNode;
+}
+declare const FormItem: React.ForwardRefExoticComponent<ItemProps & React.RefAttributes<any>>;
+export { formElementTypes } from './util';
+export default FormItem;

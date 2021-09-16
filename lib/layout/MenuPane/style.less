@@ -1,0 +1,32 @@
+@import '../../theme';
+
+@prefix-cls: ~'@{ra-lib-prefix}-layout-menu-pane';
+
+.@{prefix-cls} {
+    padding: 0 8px;
+    font-size: 18px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: @primary-color;
+    transition: background .3s cubic-bezier(0.2, 0, 0, 1);
+    border-bottom: 1px solid #e8e8e8;
+    user-select: none;
+
+    &.dark {
+        color: #fff;
+    }
+
+    &:hover {
+        opacity: .7;
+    }
+}
+
+.@{prefix-cls}-container {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    z-index: 9999;
+    overflow: hidden;
+}
