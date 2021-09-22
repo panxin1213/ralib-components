@@ -14,21 +14,21 @@ import './style.less';
 function Header(props) {
   var context = useContext(ComponentContext);
   var className = props.className,
-      _props$prefixCls = props.prefixCls,
-      prefixCls = _props$prefixCls === void 0 ? context.prefixCls : _props$prefixCls,
-      _props$style = props.style,
-      style = _props$style === void 0 ? {} : _props$style,
-      height = props.height,
-      width = props.width,
-      logo = props.logo,
-      title = props.title,
-      sideCollapsed = props.sideCollapsed,
-      showSide = props.showSide,
-      _props$theme = props.theme,
-      theme = _props$theme === void 0 ? 'dark' : _props$theme;
+    _props$prefixCls = props.prefixCls,
+    prefixCls = _props$prefixCls === void 0 ? context.prefixCls : _props$prefixCls,
+    _props$style = props.style,
+    style = _props$style === void 0 ? {} : _props$style,
+    height = props.height,
+    width = props.width,
+    logo = props.logo,
+    title = props.title,
+    sideCollapsed = props.sideCollapsed,
+    showSide = props.showSide,
+    _props$theme = props.theme,
+    theme = _props$theme === void 0 ? 'dark' : _props$theme;
 
   function handleLogoClick() {
-    props.history.push('/');
+    props.history.push(window.location.pathname.indexOf("/store/") === 0 ? '/store/' : '/');
   }
 
   prefixCls = "".concat(prefixCls, "-layout-logo");
