@@ -36,7 +36,7 @@ import './style.less';
 
 function reducer(state, action) {
   var type = action.type,
-      payload = action.payload;
+    payload = action.payload;
 
   switch (type) {
     case 'setState':
@@ -100,18 +100,18 @@ var Layout = /*#__PURE__*/forwardRef(function (props, ref) {
   }; // 初始之后还可变数据，不存到state中
 
   var children = props.children,
-      className = props.className,
-      menus = props.menus,
-      collectedMenus = props.collectedMenus,
-      onMenuCollect = props.onMenuCollect,
-      headerExtra = props.headerExtra,
-      routes = props.routes,
-      render404 = props.render404;
+    className = props.className,
+    menus = props.menus,
+    collectedMenus = props.collectedMenus,
+    onMenuCollect = props.onMenuCollect,
+    headerExtra = props.headerExtra,
+    routes = props.routes,
+    render404 = props.render404;
 
   var _useReducer = useReducer(reducer, _objectSpread({}, initialState)),
-      _useReducer2 = _slicedToArray(_useReducer, 2),
-      state = _useReducer2[0],
-      dispatch = _useReducer2[1];
+    _useReducer2 = _slicedToArray(_useReducer, 2),
+    state = _useReducer2[0],
+    dispatch = _useReducer2[1];
 
   var layoutAction = {
     state: state,
@@ -132,44 +132,44 @@ var Layout = /*#__PURE__*/forwardRef(function (props, ref) {
     return layoutAction;
   });
   var prefixCls = state.prefixCls,
-      layoutType = state.layoutType,
-      keepPageAlive = state.keepPageAlive,
-      hashRouter = state.hashRouter,
-      baseName = state.baseName,
-      isMobile = state.isMobile,
-      showTab = state.showTab,
-      tabHeight = state.tabHeight,
-      showTabHeaderExtra = state.showTabHeaderExtra,
-      showTabSideToggle = state.showTabSideToggle,
-      persistTab = state.persistTab,
-      showHeader = state.showHeader,
-      headerTheme = state.headerTheme,
-      headerHeight = state.headerHeight,
-      logo = state.logo,
-      title = state.title,
-      showHeaderSideToggle = state.showHeaderSideToggle,
-      sideMaxWidth = state.sideMaxWidth,
-      sideMinWidth = state.sideMinWidth,
-      showSearchMenu = state.showSearchMenu,
-      searchMenuPlaceholder = state.searchMenuPlaceholder,
-      collectedMenuTitle = state.collectedMenuTitle,
-      renderSide = state.renderSide,
-      sideCollapsed = state.sideCollapsed,
-      selectedMenuPath = state.selectedMenuPath,
-      showSide = state.showSide,
-      sideTheme = state.sideTheme,
-      logoTheme = state.logoTheme,
-      _state$menuTreeData = state.menuTreeData,
-      menuTreeData = _state$menuTreeData === void 0 ? [] : _state$menuTreeData,
-      keepMenuOpen = state.keepMenuOpen,
-      selectedMenu = state.selectedMenu,
-      _state$selectedMenuPa = state.selectedMenuParents,
-      selectedMenuParents = _state$selectedMenuPa === void 0 ? [] : _state$selectedMenuPa,
-      showPageHeader = state.showPageHeader,
-      pageHeaderHeight = state.pageHeaderHeight,
-      pageTitle = state.pageTitle,
-      breadcrumb = state.breadcrumb,
-      appendBreadcrumb = state.appendBreadcrumb;
+    layoutType = state.layoutType,
+    keepPageAlive = state.keepPageAlive,
+    hashRouter = state.hashRouter,
+    baseName = state.baseName,
+    isMobile = state.isMobile,
+    showTab = state.showTab,
+    tabHeight = state.tabHeight,
+    showTabHeaderExtra = state.showTabHeaderExtra,
+    showTabSideToggle = state.showTabSideToggle,
+    persistTab = state.persistTab,
+    showHeader = state.showHeader,
+    headerTheme = state.headerTheme,
+    headerHeight = state.headerHeight,
+    logo = state.logo,
+    title = state.title,
+    showHeaderSideToggle = state.showHeaderSideToggle,
+    sideMaxWidth = state.sideMaxWidth,
+    sideMinWidth = state.sideMinWidth,
+    showSearchMenu = state.showSearchMenu,
+    searchMenuPlaceholder = state.searchMenuPlaceholder,
+    collectedMenuTitle = state.collectedMenuTitle,
+    renderSide = state.renderSide,
+    sideCollapsed = state.sideCollapsed,
+    selectedMenuPath = state.selectedMenuPath,
+    showSide = state.showSide,
+    sideTheme = state.sideTheme,
+    logoTheme = state.logoTheme,
+    _state$menuTreeData = state.menuTreeData,
+    menuTreeData = _state$menuTreeData === void 0 ? [] : _state$menuTreeData,
+    keepMenuOpen = state.keepMenuOpen,
+    selectedMenu = state.selectedMenu,
+    _state$selectedMenuPa = state.selectedMenuParents,
+    selectedMenuParents = _state$selectedMenuPa === void 0 ? [] : _state$selectedMenuPa,
+    showPageHeader = state.showPageHeader,
+    pageHeaderHeight = state.pageHeaderHeight,
+    pageTitle = state.pageTitle,
+    breadcrumb = state.breadcrumb,
+    appendBreadcrumb = state.appendBreadcrumb;
   prefixCls = "".concat(prefixCls, "-layout");
   var sideWidth = sideCollapsed ? sideMinWidth : sideMaxWidth;
   pageHeaderHeight = showPageHeader ? pageHeaderHeight : 0;
@@ -325,7 +325,8 @@ var Layout = /*#__PURE__*/forwardRef(function (props, ref) {
     title: title,
     persistTab: persistTab,
     keepPageAlive: keepPageAlive,
-    hashRouter: hashRouter
+    hashRouter: hashRouter,
+    selectedMenuPath: selectedMenuPath
   }) : null, showPageHeader ? /*#__PURE__*/React.createElement(PageHeader, {
     pageTitle: pageTitle,
     selectedMenu: selectedMenu,

@@ -1,4 +1,4 @@
-function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e2) { throw _e2; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e3) { didErr = true; err = _e3; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
+function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() { }; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e2) { throw _e2; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e3) { didErr = true; err = _e3; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
 
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
@@ -35,36 +35,36 @@ export default withRouter( /*#__PURE__*/React.memo(function Tab(props) {
 
   var context = useContext(ComponentContext);
   var className = props.className,
-      _props$prefixCls = props.prefixCls,
-      prefixCls = _props$prefixCls === void 0 ? context.prefixCls : _props$prefixCls,
-      pageTitle = props.pageTitle,
-      tabs = props.tabs,
-      onClose = props.onClose,
-      tabHeight = props.tabHeight,
-      showSide = props.showSide,
-      headerHeight = props.headerHeight,
-      sideWidth = props.sideWidth,
-      routes = props.routes,
-      headerExtra = props.headerExtra,
-      showToggle = props.showToggle,
-      sideCollapsed = props.sideCollapsed,
-      onToggleSide = props.onToggleSide,
-      logo = props.logo,
-      title = props.title,
-      persistTab = props.persistTab,
-      logoTheme = props.logoTheme,
-      keepPageAlive = props.keepPageAlive,
-      hashRouter = props.hashRouter;
+    _props$prefixCls = props.prefixCls,
+    prefixCls = _props$prefixCls === void 0 ? context.prefixCls : _props$prefixCls,
+    pageTitle = props.pageTitle,
+    tabs = props.tabs,
+    onClose = props.onClose,
+    tabHeight = props.tabHeight,
+    showSide = props.showSide,
+    headerHeight = props.headerHeight,
+    sideWidth = props.sideWidth,
+    routes = props.routes,
+    headerExtra = props.headerExtra,
+    showToggle = props.showToggle,
+    sideCollapsed = props.sideCollapsed,
+    onToggleSide = props.onToggleSide,
+    logo = props.logo,
+    title = props.title,
+    persistTab = props.persistTab,
+    logoTheme = props.logoTheme,
+    keepPageAlive = props.keepPageAlive,
+    hashRouter = props.hashRouter;
   var _window$location = window.location,
-      pathname = _window$location.pathname,
-      search = _window$location.search,
-      hash = _window$location.hash;
+    pathname = _window$location.pathname,
+    search = _window$location.search,
+    hash = _window$location.hash;
   var routePath = hashRouter ? hash.replace('#', '').split('?')[0] : pathname;
-  var key = hashRouter ? hash.replace('#', '') : "".concat(pathname).concat(search).concat(hash);
+  var key = props.selectedMenuPath ?? (hashRouter ? hash.replace('#', '') : "".concat(pathname).concat(search).concat(hash));
 
   var _useState = useState({}),
-      _useState2 = _slicedToArray(_useState, 2),
-      setRefresh = _useState2[1];
+    _useState2 = _slicedToArray(_useState, 2),
+    setRefresh = _useState2[1];
 
   var refreshRef = useRef(0);
   useEffect(function () {
@@ -125,8 +125,8 @@ export default withRouter( /*#__PURE__*/React.memo(function Tab(props) {
     var nextIndex = index;
 
     var _tabs$splice = tabs.splice(index, 1),
-        _tabs$splice2 = _slicedToArray(_tabs$splice, 1),
-        tab = _tabs$splice2[0];
+      _tabs$splice2 = _slicedToArray(_tabs$splice, 1),
+      tab = _tabs$splice2[0];
 
     handlePersistTab(); // 删除的不是当前tab，触发刷新
 
@@ -183,7 +183,7 @@ export default withRouter( /*#__PURE__*/React.memo(function Tab(props) {
       var keys = []; // eslint-disable-next-line no-restricted-syntax
 
       var _iterator = _createForOfIteratorHelper(arr),
-          _step;
+        _step;
 
       try {
         for (_iterator.s(); !(_step = _iterator.n()).done;) {
