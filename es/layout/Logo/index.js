@@ -28,7 +28,7 @@ function Header(props) {
     theme = _props$theme === void 0 ? 'dark' : _props$theme;
 
   function handleLogoClick() {
-    props.history.push(window.location.pathname.indexOf("/store/") === 0 ? '/store/' : '/');
+    //props.history.push(window.location.pathname.indexOf("/store/") === 0 ? '/store/' : '/');
   }
 
   prefixCls = "".concat(prefixCls, "-layout-logo");
